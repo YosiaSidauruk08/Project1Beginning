@@ -1,0 +1,58 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+    int pilihan, harga, berat_cucian;
+    float total, diskon;
+    cout << "Layanan Laundry Yosia \n"
+         << "1. Cuci Kering 8.500/kg \n"
+         << "2. Cuci Setrika 12.000/kg \n"
+         << "3. Express 20.000/kg\n"
+         << "Pilih layanan (1-3) : ";
+    cin >> pilihan;
+    switch (pilihan) {
+        case 1:
+        harga = 8500;
+        cout << "Harga 8.500\n"
+             << "Berat cucian anda: ";
+        cin >> berat_cucian;
+        total = berat_cucian * harga;
+        break;
+
+        case 2:
+        harga = 12000;
+        cout << "Harga 12000\n"
+             << "Berat cucian anda: ";
+        cin >> berat_cucian;
+        total = berat_cucian * harga;
+        break;
+
+        case 3:
+        harga = 20000;
+        cout << "Harga 20.000\n"
+             << "Berat cucian anda: ";
+        cin >> berat_cucian;
+        total = berat_cucian * harga;
+        break;
+
+        default:
+        cout << "Gak ada menu";
+    }
+    
+    if (berat_cucian < 1) {
+        cout << "Berat tidak Valid";
+        return 0;
+    } else {
+        if (berat_cucian > 12) {
+            diskon = total * 0.10;
+        } else if  (berat_cucian > 8 and berat_cucian <= 12) {
+            diskon = total * 0.05;
+        } else {
+            diskon = 0;
+        }
+
+    float totalHarga = total - diskon;
+    cout << "Total Harga = " << totalHarga << endl;
+    return 0;
+    }
+}
